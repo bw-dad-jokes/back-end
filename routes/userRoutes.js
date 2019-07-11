@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-router.get('/login', (req, res) => {
-    res.send('Hello from login route')
+router.post('/login', (req, res) => {
+    res.status(200).json({message: 'Logged in'})
 })
 
-router.get('/signup', (req, res) => {
-    res.send('Hello from signup route')
+router.post('/signup', (req, res) => {
+    res.status(201).json({message: 'Account created'})
 })
 
 
