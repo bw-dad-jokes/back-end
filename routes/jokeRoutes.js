@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 })
 
 // TODO: add validation to protect route
-router.post('/:id/add', (req, res) => {
+router.post('/:id/joke', (req, res) => {
     res.send('Adds new joke')
 })
 
