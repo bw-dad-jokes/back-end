@@ -4,8 +4,11 @@ const userRoutes = require('../routes/userRoutes')
 const jokeRoutes = require('../routes/jokeRoutes')
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../swagger.json')
+const cors = require('cors')
+require('dotenv').config()
 
 server.use(express.json())
+server.use(cors())
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // Routes

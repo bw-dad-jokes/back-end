@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/bw-dad-jokes/back-end#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "swagger-ui-express": "^4.0.7"
   },
