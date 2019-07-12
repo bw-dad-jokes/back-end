@@ -1,0 +1,92 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "Dad Jokes",
+    "description" : "API Reference For Dad Jokes",
+    "version" : "0.1"
+  },
+  "servers" : [ {
+    "url" : "http://localhost:5050"
+  } ],
+  "paths" : {
+    "/auth/login" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : { }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "[\n    {\n        \"username\": \"John\",\n        \"password\": \"12345\"\n    }    \n]"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:5050"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:5050"
+      } ]
+    },
+    "/auth/signup" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : { }
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "[\n    {\n        \"username\": \"John\",\n        \"password\": \"12345\"\n    }    \n]"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "http://localhost:5050"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "http://localhost:5050"
+      } ]
+    }
+  },
+  "components" : { }
+}
