@@ -1,5 +1,6 @@
 const express = require('express')
 const server = express()
+const helmet = require('helmet')
 const userRoutes = require('../routes/userRoutes')
 const jokeRoutes = require('../routes/jokeRoutes')
 const swaggerUi = require('swagger-ui-express')
@@ -9,6 +10,7 @@ require('dotenv').config()
 
 server.use(express.json())
 server.use(cors())
+server.use(helmet())
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 // Routes
