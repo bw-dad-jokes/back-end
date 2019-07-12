@@ -8,7 +8,21 @@ function generateToken(user) {
 }
 
 router.post('/login', async (req, res) => {
-  res.status(200).json({ message: 'Logged in' });
+  try {
+    const { username, password } = req.body;
+
+    const user = { password, username }; // ToDo: look up user in the database
+    if (user && bcrypt.compareSync(password, user.passwowrd)) {
+      const token = generateToken(user);
+      res
+        .status(200)
+        .json({ mesage: `Welcome ${user.username}`, authToken: token });
+    } else {
+      res.status(400).json({ message: 'Invalid username or password' });
+    }
+  } catch (err) {
+    req.status(500).json({ message: 'Database is unavilable' });
+  }
 });
 
 router.post('/signup', async (req, res) => {
@@ -17,7 +31,7 @@ router.post('/signup', async (req, res) => {
     const token = await generateToken(user);
     const hash = bcrypt.hashSync(user.password, 12);
     user.password = hash;
-    // ToDo add user to the database
+    // ToDo: add user to the database
     res
       .status(201)
       .json({ message: `Welcome ${user.username}`, authToken: token });
