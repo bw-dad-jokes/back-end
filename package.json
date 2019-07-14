@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cross-env DB_ENV=testing jest --watch",
     "server": "nodemon index.js"
   },
   "repository": {
@@ -19,14 +19,15 @@
   },
   "homepage": "https://github.com/bw-dad-jokes/back-end#readme",
   "dependencies": {
-    "knex": "^0.18.4",
-    "sqlite3": "^4.0.9",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "cross-env": "^5.2.0",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "helmet": "^3.18.0",
     "jsonwebtoken": "^8.5.1",
+    "knex": "^0.18.4",
+    "sqlite3": "^4.0.9",
     "swagger-ui-express": "^4.0.7"
   },
   "devDependencies": {

@@ -7,15 +7,24 @@ function getAll() {
 }
 
 function getById(id) {
-  return users.where({id});
+  return users.where({ id }).first();
 }
 
 function getByUsername(username) {
-  return users.where({username});
+  return users.where({ username }).first();
+}
+
+async function insert(user) {
+  const [id] = await users.insert(user);
+
+  return db('users')
+    .where({ id })
+    .first();
 }
 
 module.exports = {
   getAll,
   getById,
-  getByUsername
-}
+  getByUsername,
+  insert
+};
