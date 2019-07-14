@@ -4,9 +4,18 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../data/models/users');
 
-
 function generateToken(user) {
   return jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
+}
+
+async function checkUserName(req, res, next) {
+  const { username } = req.body;
+  const user = await User.getByUsername(username);
+  if (user) {
+    res.status(400).json({ message: 'Username already taken' });
+  } else {
+    next();
+  }
 }
 
 router.post('/login', async (req, res) => {
@@ -24,7 +33,7 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/signup', async (req, res) => {
+router.post('/signup', checkUserName, async (req, res) => {
   try {
     let user = req.body;
     const token = await generateToken(user);
