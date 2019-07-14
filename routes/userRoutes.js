@@ -8,6 +8,7 @@ function generateToken(user) {
   return jwt.sign({ userId: user.id }, process.env.JWT_SECRET);
 }
 
+// Checks to see if username is already registered
 async function checkUserName(req, res, next) {
   const { username } = req.body;
   const user = await User.getByUsername(username);
