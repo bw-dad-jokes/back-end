@@ -11,7 +11,8 @@ function getById(id) {
 }
 
 function getByUsername(username) {
-  return users.where({ username }).first();
+  //return users.where({ username }).first();
+  return db('users').where({username}).first()
 }
 
 async function insert(user) {
