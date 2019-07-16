@@ -40,7 +40,7 @@ router.post('/signup', checkUserName, async (req, res) => {
     user = await User.insert(user);
     res.status(201).json({ username: `Welcome ${user.username}` });
   } catch (err) {
-    res.status(500).json({ message: 'Database is unavilable' });
+    res.status(500).json(err);
   }
 });
 
