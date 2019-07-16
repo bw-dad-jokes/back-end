@@ -39,8 +39,8 @@ router.post('/signup', checkUserName, async (req, res) => {
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 12);
     user.password = hash;
-    user = await User.insert(user);
-    res.status(201).json({ message: `Welcome ${user.username}` });
+    const newUser = await User.insert(user);
+    res.status(201).json({ message: `Welcome ${newUser.username}` });
   } catch (err) {
     res.status(500).json({ message: 'Database is unavilable' });
   }
