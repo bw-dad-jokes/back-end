@@ -43,17 +43,8 @@ module.exports = {
   // },
 
   production: {
-<<<<<<< HEAD
-    client: 'postgresql',
-    connection: process.env.DATABASE_URL,
-=======
     client: 'pg',
-    connection: {
-      database: process.env.DATABASE_URL,
-      // user:     'username',
-      // password: 'password'
-    },
->>>>>>> 86941bc14bebae9b1b8d98f41a1166e30c351837
+    connection: process.env.DATABASE_URL,
     migrations: {
       directory: './data/migrations'
     }, 
