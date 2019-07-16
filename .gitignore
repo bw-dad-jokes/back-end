@@ -63,3 +63,5 @@ typings/
 # database
 *.db3
 data/dad-jokes.db3
+.vscode/settings.json
+data/dad-jokes.db3
