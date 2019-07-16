@@ -42,6 +42,13 @@ async function getPublic() {
   return concattedJokes;
 }
 
+function deleteById(id) {
+  return db('users')
+    .where({ id })
+    .delete();
+}
+
 module.exports = {
   getPublic,
+  deleteById
 }

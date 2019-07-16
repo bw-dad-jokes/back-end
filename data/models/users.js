@@ -22,9 +22,16 @@ async function insert(user) {
     .first();
 }
 
+function deleteById(id) {
+  return db('users')
+    .where({ id })
+    .delete();
+}
+
 module.exports = {
   getAll,
   getById,
   getByUsername,
-  insert
+  insert,
+  deleteById
 };
