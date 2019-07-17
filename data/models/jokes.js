@@ -48,7 +48,18 @@ function deleteById(id) {
     .delete();
 }
 
+// Add new joke
+async function addJoke(joke) {
+  const [id] = await db('jokes').insert(joke).returning("id")
+  return db('jokes').where({id}).first()
+}
+
+function updateJoke(id, joke) {
+  return db('jokes').where('id', Number(id)).update(joke)
+}
+
 module.exports = {
   getPublic,
-  deleteById
+  deleteById,
+  addJoke
 }
