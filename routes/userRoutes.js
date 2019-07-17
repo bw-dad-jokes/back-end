@@ -34,11 +34,11 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/signup', checkUserName, async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     let user = req.body;
-    const hash = bcrypt.hashSync(user.password, 12);
-    user.password = hash;
+    //const hash = bcrypt.hashSync(user.password, 12);
+    //user.password = hash;
     const newUser = await User.insert(user)
     console.log(newUser)
     res.status(201).json({ message: `Welcome` });
