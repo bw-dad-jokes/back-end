@@ -16,7 +16,7 @@ function getByUsername(username) {
 }
 
 async function insert(user) {
-  const [id] = await db('users').insert(user);
+  const [id] = await db('users').insert(user).returning("id");
 
   return db('users')
     .where({ id })
