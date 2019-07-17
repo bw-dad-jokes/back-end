@@ -34,17 +34,30 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/signup', async (req, res) => {
-  try {
-    let user = req.body;
-    //const hash = bcrypt.hashSync(user.password, 12);
-    //user.password = hash;
+// router.post('/signup', checkUserName, async (req, res) => {
+//   try {
+//     let user = req.body;
+//     const hash = bcrypt.hashSync(user.password, 12);
+//     user.password = hash;
+//     const newUser = await User.insert(user)
+//     console.log(newUser)
+//     res.status(201).json({ message: `Welcome` });
+//   } catch ({message}) {
+//     res.status(500).json({ message });
+//   }
+// });
+
+router.post('/signuptest', async (req, res) => {
+  try{
+    let user = {
+      username: 'test',
+      password: 'test123'
+    }
     const newUser = await User.insert(user)
-    console.log(newUser)
-    res.status(201).json({ message: `Welcome` });
+    res.status(201).json(newUser)
   } catch ({message}) {
-    res.status(500).json({ message });
+    res.status(500).json({message})
   }
-});
+})
 
 module.exports = router;
