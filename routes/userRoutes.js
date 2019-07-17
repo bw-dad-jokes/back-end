@@ -39,8 +39,9 @@ router.post('/signup', checkUserName, async (req, res) => {
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 12);
     user.password = hash;
-    const newUser = await User.insert(user);
-    res.status(201).json({ message: `Welcome ${newUser.username}` });
+    const newUser = await User.insert(user)
+    console.log(newUser)
+    res.status(201).json({ message: `Welcome` });
   } catch ({message}) {
     res.status(500).json({ message });
   }
