@@ -40,24 +40,11 @@ router.post('/signup', checkUserName, async (req, res) => {
     const hash = bcrypt.hashSync(user.password, 12);
     user.password = hash;
     const newUser = await User.insert(user)
-    console.log(newUser)
-    res.status(201).json({ message: `Welcome` });
+    res.status(201).json({ message: `Welcome ${newUser.username}` });
   } catch ({message}) {
     res.status(500).json({ message });
   }
 });
 
-router.post('/signuptest', async (req, res) => {
-  try{
-    let user = {
-      username: 'test',
-      password: 'test123'
-    }
-    const newUser = await User.insert(user)
-    res.status(201).json(newUser)
-  } catch ({message}) {
-    res.status(500).json({message})
-  }
-})
 
 module.exports = router;
