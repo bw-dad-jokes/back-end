@@ -41,8 +41,8 @@ router.post('/signup', checkUserName, async (req, res) => {
     user.password = hash;
     const newUser = await User.insert(user);
     res.status(201).json({ message: `Welcome ${newUser.username}` });
-  } catch (err) {
-    res.status(500).json({ message: 'Database is unavilable' });
+  } catch ({message}) {
+    res.status(500).json({ message });
   }
 });
 
