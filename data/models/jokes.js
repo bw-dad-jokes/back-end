@@ -61,5 +61,6 @@ function updateJoke(id, joke) {
 module.exports = {
   getPublic,
   deleteById,
-  addJoke
+  addJoke,
+  updateJoke
 }
