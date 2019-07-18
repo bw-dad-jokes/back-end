@@ -24,9 +24,23 @@ function isAuthorized(req, res, next) {
 
 // Returns all public jokes
 router.get('/', async (req, res) => {
-  const jokes = await Jokes.getPublic();
-  res.status(200).json(jokes);
+    try {
+        const jokes = await Jokes.getPublic();
+        res.status(200).json(jokes);   
+    } catch (err) {
+        res.status(500).json({ message: 'Server is unavailable' });
+    }
 });
+
+// Returns all private jokes
+router.get('/private', isAuthorized, async (req, res) => {
+    try {
+        const jokes = await Jokes.getPrivate();
+        res.status(200).json(jokes);
+    } catch (err) {
+        res.status(500).json({ message: 'Server is unavailable' });
+    }
+})
 
 // Add a new joke
 router.post(
