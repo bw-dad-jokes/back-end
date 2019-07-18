@@ -50,7 +50,7 @@ router.post(
     check('user_id').exists(),
     check('joke_text').exists(),
     check('private').exists(),
-    check('private').exists()
+    check('public').exists()
   ],
   async (req, res) => {
     try {
@@ -75,7 +75,7 @@ router.put(
     check('user_id').exists(),
     check('joke_text').exists(),
     check('private').exists(),
-    check('private').exists()
+    check('public').exists()
   ],
   async (req, res) => {
     try {
