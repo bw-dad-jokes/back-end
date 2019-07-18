@@ -80,8 +80,17 @@ router.put('/:id', isAuthorized, [
 
 // TODO: add validation to protect route
 // Deletes joke
-router.delete('/:id', isAuthorized, (req, res) => {
-  res.send('Removed Joke');
-});
+router.delete('/:id', isAuthorized, async (req, res) => {
+  try {
+    const id = req.params.id
+    const joke = await Jokes.deleteJoke(id)
+    if(!joke) {
+      return res.status(400).json({ message: 'Joke does not exist'})
+    }
+    res.status(200).json(joke)
+  } catch(err) {
+    res.status(500).json({ message: 'Server is unavailable' });
+  }
+})
 
 module.exports = router;

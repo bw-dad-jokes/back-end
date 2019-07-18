@@ -54,13 +54,20 @@ async function addJoke(joke) {
   return db('jokes').where({id}).first()
 }
 
+// Edit joke
 function updateJoke(id, joke) {
   return db('jokes').where('id', Number(id)).update(joke)
+}
+
+// Delete joke
+function deleteJoke(id) {
+  return db('jokes').where('id', Number(id)).del()
 }
 
 module.exports = {
   getPublic,
   deleteById,
   addJoke,
-  updateJoke
+  updateJoke,
+  deleteJoke
 }
