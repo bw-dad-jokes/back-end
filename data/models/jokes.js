@@ -6,7 +6,7 @@ const jokes = db('jokes');
 async function getPublic() {
  return db('jokes')
  .join('users', 'jokes.user_id', '=', 'users.id')
- .select('jokes.joke_text', 'jokes.public', 'jokes.private', 'jokes.user_id', 'users.username')
+ .select('jokes.id','jokes.joke_text', 'jokes.public', 'jokes.private', 'jokes.user_id', 'users.username')
  .where({public: true})
 }
 
