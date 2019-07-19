@@ -1,12 +1,12 @@
 {
   "openapi" : "3.0.1",
   "info" : {
-    "title" : "Dad Jokes",
-    "description" : "API Reference For Dad Jokes",
+    "title" : "defaultTitle",
+    "description" : "defaultDescription",
     "version" : "0.1"
   },
   "servers" : [ {
-    "url" : "http://localhost:5050"
+    "url" : "https://dad-jokes-back-end.herokuapp.com"
   } ],
   "paths" : {
     "/auth/login" : {
@@ -16,12 +16,11 @@
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
-                "properties" : { }
+                "$ref" : "#/components/schemas/body"
               },
               "examples" : {
                 "0" : {
-                  "value" : "[\n    {\n        \"username\": \"John\",\n        \"password\": \"12345\"\n    }    \n]"
+                  "value" : "{\n    \"username\": \"Tim\",\n    \"password\": \"oicu8123\"\n}"
                 }
               }
             }
@@ -41,26 +40,85 @@
           }
         },
         "servers" : [ {
-          "url" : "http://localhost:5050"
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
         } ]
       },
       "servers" : [ {
-        "url" : "http://localhost:5050"
+        "url" : "https://dad-jokes-back-end.herokuapp.com"
       } ]
     },
-    "/auth/signup" : {
+    "/api/jokes/:id" : {
+      "put" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/body_1"
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n\t\"joke_text\": \"If a child refuses to sleep during nap time, are they guilty of resisting a rest?\",\n\t\"public\": true,\n\t\"private\": false,\n\t\"user_id\": 27\n\n}"
+                },
+                "1" : {
+                  "value" : "{\n\t\"joke_text\": \"If a child refuses to sleep during nap time, are they guilty of resisting a rest?\",\n\t\"public\": true,\n\t\"private\": false,\n\t\"user_id\": 27\n\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
+        } ]
+      },
+      "delete" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://dad-jokes-back-end.herokuapp.com"
+      } ]
+    },
+    "/api/jokes" : {
       "post" : {
         "description" : "Auto generated using Swagger Inspector",
         "requestBody" : {
           "content" : {
             "application/json" : {
               "schema" : {
-                "type" : "object",
-                "properties" : { }
+                "$ref" : "#/components/schemas/body_2"
               },
               "examples" : {
                 "0" : {
-                  "value" : "[\n    {\n        \"username\": \"John\",\n        \"password\": \"12345\"\n    }    \n]"
+                  "value" : "{\n\t\"joke_text\": \"If a child refuses to sleep during nap time, are they guilty of resisting a rest?\",\n\t\"public\": true,\n\t\"private\": true,\n\t\"user_id\": 27\n\n}"
                 }
               }
             }
@@ -80,13 +138,134 @@
           }
         },
         "servers" : [ {
-          "url" : "http://localhost:5050"
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
         } ]
       },
       "servers" : [ {
-        "url" : "http://localhost:5050"
+        "url" : "https://dad-jokes-back-end.herokuapp.com"
+      } ]
+    },
+    "/auth/signup" : {
+      "post" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/body_3"
+              },
+              "examples" : {
+                "0" : {
+                  "value" : "{\n    \"username\": \"Carl\",\n    \"password\": \"oicu8123\"\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://dad-jokes-back-end.herokuapp.com"
+      } ]
+    },
+    "/api/jokes/" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://dad-jokes-back-end.herokuapp.com"
       } ]
     }
   },
-  "components" : { }
+  "components" : {
+    "schemas" : {
+      "body" : {
+        "type" : "object",
+        "properties" : {
+          "password" : {
+            "type" : "string"
+          },
+          "username" : {
+            "type" : "string"
+          }
+        }
+      },
+      "body_1" : {
+        "type" : "object",
+        "properties" : {
+          "joke_text" : {
+            "type" : "string"
+          },
+          "private" : {
+            "type" : "boolean"
+          },
+          "public" : {
+            "type" : "boolean"
+          },
+          "user_id" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "body_2" : {
+        "type" : "object",
+        "properties" : {
+          "joke_text" : {
+            "type" : "string"
+          },
+          "private" : {
+            "type" : "boolean"
+          },
+          "public" : {
+            "type" : "boolean"
+          },
+          "user_id" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "body_3" : {
+        "type" : "object",
+        "properties" : {
+          "password" : {
+            "type" : "string"
+          },
+          "username" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
 }
