@@ -47,6 +47,30 @@
         "url" : "https://dad-jokes-back-end.herokuapp.com"
       } ]
     },
+    "/api/jokes/private/" : {
+      "get" : {
+        "description" : "Auto generated using Swagger Inspector",
+        "responses" : {
+          "200" : {
+            "description" : "Auto generated using Swagger Inspector",
+            "content" : {
+              "application/json; charset=utf-8" : {
+                "schema" : {
+                  "type" : "string"
+                },
+                "examples" : { }
+              }
+            }
+          }
+        },
+        "servers" : [ {
+          "url" : "https://dad-jokes-back-end.herokuapp.com"
+        } ]
+      },
+      "servers" : [ {
+        "url" : "https://dad-jokes-back-end.herokuapp.com"
+      } ]
+    },
     "/api/jokes/:id" : {
       "put" : {
         "description" : "Auto generated using Swagger Inspector",
