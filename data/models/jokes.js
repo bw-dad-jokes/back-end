@@ -4,8 +4,10 @@ const jokes = db('jokes');
 
 // Get all public jokes
 async function getPublic() {
-  return db('jokes')
-    .where({ public: true});
+ return db('jokes')
+ .join('users', 'jokes.user_id', '=', 'users.id')
+ .select('jokes.joke_text', 'jokes.public', 'jokes.private', 'jokes.user_id', 'users.username')
+ .where({public: true})
 }
 
 // Get all private jokes
