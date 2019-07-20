@@ -13,7 +13,9 @@ async function getPublic() {
 // Get all private jokes
 async function getPrivate() {
   return db('jokes')
-    .where({ private: true });
+  .join('users', 'jokes.user_id', '=', 'users.id')
+  .select('jokes.id','jokes.joke_text', 'jokes.public', 'jokes.private', 'jokes.user_id', 'users.username')
+  .where({private: true})
 }
 
 // Add new joke
